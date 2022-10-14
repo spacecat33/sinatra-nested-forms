@@ -1,4 +1,5 @@
 <h1>Ah, there's a Pirate over there! His details are: </h1>
+
 <p>Pirate name: <%= @pirate.name %>! </p>
 <p>Pirate weight: <%= @pirate.weight %>! </p>
 <p>Pirate height: <%= @pirate.height %>! </p>
@@ -14,10 +15,13 @@
 <p>Ship Type: <%= @ships[1].type %></p>
 <p>Ship Booty: <%= @ships[1].booty %></p>
 
-##OR FOR SHIPS USE THE BELOW DRYer CODE AS THE ERB will automagically index the array for us
-# <h1>Ships</h1>
-# <% @ships.each do |ship| %>
-#   <h2>Ship Name: <%= ship.name %></h2>
-#   <h2>Ship Type: <%= ship.type %></h2>
-#   <h2>Ship Booty: <%= ship.booty %></h2>
-# <% end %>
+
+
+##OR FOR SHIPS USE THE BELOW DRYer CODE as more dynamic AS THE ERB will automagically index the array for us
+<h1>Ships</h1>
+<% @ships.each.with_index(1) do |ship, index| %>
+  <h2> Ship Number <%= index %>. </h2>
+  <h2>Ship Name: <%= ship.name %></h2>
+  <h2>Ship Type: <%= ship.type %></h2>
+  <h2>Ship Booty: <%= ship.booty %></h2>
+<% end %>
